@@ -69,6 +69,6 @@ async def _(event):
             await asyncio.sleep(animation_interval)
             try:
                 await event.edit(animation_chars[i % 11])
-            execpt:
+            except:
                 pass
 
