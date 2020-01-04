@@ -1095,7 +1095,7 @@ async def shrugger(shg):
         await shg.edit(random.choice(SHGS))
 
 
-@register(outgoing=True, pattern="^.runs$")
+@register(outgoing=True, pattern="^.run$")
 async def runner_lol(run):
     """ Run, run, RUNNN! """
     if not run.text[0].isalpha() and run.text[0] not in ("/", "#", "@", "!"):
