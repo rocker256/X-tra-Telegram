@@ -51,3 +51,22 @@ async def _(event):
             await asyncio.sleep(animation_interval)
 
             await event.edit(animation_chars[i % 11])
+    elif input_str == "nikal":
+
+        await event.edit(input_str)
+        animation_chars = [
+        "NikAl",
+        "lAwDe",
+        "PehLi",
+        "FuRsaT",
+        "Me",
+        "NikAl",
+        "<--",
+        "NikAl lAwDe PehLi FuRsaT Me NikAL <--"]
+
+        for i in animation_ttl:
+
+            await asyncio.sleep(animation_interval)
+
+            await event.edit(animation_chars[i % 11])
+
