@@ -1125,6 +1125,12 @@ async def Oof(e):
 async def iqless(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("♿")
+			  
+@register(outgoing=True, pattern="^.lol$")
+async def lol(e):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        await e.edit("L😂L")
+
 
 @register(outgoing=True, pattern="^.moon$")
 async def _(event):
