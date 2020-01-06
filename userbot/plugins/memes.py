@@ -822,7 +822,6 @@ async def noice(event):
             message_id = event.reply_to_msg_id
         await event.client.send_message(
             event.chat_id,
-            reply_to=message_id,
             file="https://media.giphy.com/media/yJFeycRK2DB4c/giphy.gif"
         )
         await event.delete()
