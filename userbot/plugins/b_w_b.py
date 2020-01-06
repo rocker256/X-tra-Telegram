@@ -57,11 +57,15 @@ async def hs(event):
         ans = bwb.check_auth(text, handshake=True)
     except:
         ans = False
+    try:
+        ans2 = bwb.check_auth(text)
+    except:
+        ans2 = False
     if text.startswith('000000'):
         pass
     elif ans:
         handshake_auth = True
-    elif bwb.check_auth(text):
+    elif ans2:
         auth = True
     else:
         return
