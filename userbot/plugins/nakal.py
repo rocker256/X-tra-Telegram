@@ -71,4 +71,24 @@ async def _(event):
                 await event.edit(animation_chars[i % 11])
             except:
                 pass
+            
+    elif input_str == "danger":
+
+        await event.edit(input_str)
+        animation_chars = [
+        "I",
+        "am",
+        "not",
+        "in",
+        "danger,",
+        "I am **THE DANGER**!!"
+        ]
+
+        for i in animation_ttl:
+
+            await asyncio.sleep(animation_interval)
+            try:
+                await event.edit(animation_chars[i % 11])
+            except:
+                pass
 
