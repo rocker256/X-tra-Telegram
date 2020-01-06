@@ -795,22 +795,36 @@ async def lol(lel):
             okay = okay[:-1] + "_-"
             await lel.edit(okay)
 
-@register(outgoing=True, pattern="^.decide$")
-async def _(event):
-    if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
-        if event.fwd_from:
-            return
-        message_id = event.message.id
-        if event.reply_to_msg_id:
-            message_id = event.reply_to_msg_id
-        r = requests.get("https://yesno.wtf/api").json()
-        await event.client.send_message(
-            event.chat_id,
-            str(r["answer"]).upper(),
-            reply_to=message_id,
-            file=r["image"]
-        )
-        await event.delete()
+@register(outgoing=True, pattern="^.(yes|no|maybe|decide)$")
+async def decide(event):
+    decision = event.pattern_match.group(1).lower()
+    message_id = event.reply_to_msg_id if event.reply_to_msg_id else None
+    if decision != "decide":
+        r = requests.get(f"https://yesno.wtf/api?force={decision}").json()
+    else:
+        r = requests.get(f"https://yesno.wtf/api").json()
+    await event.delete()
+    await event.client.send_message(event.chat_id,
+                                    str(r["answer"]).upper(),
+                                    reply_to=message_id,
+                                    file=r["image"])			  
+			  
+# @register(outgoing=True, pattern="^.decide$")
+# async def _(event):
+#     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
+#         if event.fwd_from:
+#             return
+#         message_id = event.message.id
+#         if event.reply_to_msg_id:
+#             message_id = event.reply_to_msg_id
+#         r = requests.get("https://yesno.wtf/api").json()
+#         await event.client.send_message(
+#             event.chat_id,
+#             str(r["answer"]).upper(),
+#             reply_to=message_id,
+#             file=r["image"]
+#         )
+#         await event.delete()
 			  
 @register(outgoing=True, pattern="^.noice$")
 async def noice(event):
