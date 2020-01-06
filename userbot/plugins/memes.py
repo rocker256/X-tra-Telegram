@@ -1120,6 +1120,14 @@ async def Oof(e):
         for j in range(15):
             t = t[:-1] + "of"
             await e.edit(t)
+			
+@register(outgoing=True, pattern="^.yo$")
+async def Oof(e):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        t = "yo"
+        for j in range(15):
+            t = t[:-1] + "oo"
+            await e.edit(t)
 
 @register(outgoing=True, pattern="^.10iq$")
 async def iqless(e):
