@@ -53,10 +53,13 @@ async def wrap(event):
 async def hs(event):
     text = bwb.parse(event.raw_text)
     handshake_auth = False
-
+    try:
+        ans = bwb.check_auth(text, handshake=True)
+    except:
+        ans = False
     if text.startswith('000000'):
         pass
-    elif bwb.check_auth(text, handshake=True):
+    elif ans:
         handshake_auth = True
     elif bwb.check_auth(text):
         auth = True
