@@ -811,6 +811,22 @@ async def _(event):
             file=r["image"]
         )
         await event.delete()
+			  
+@register(outgoing=True, pattern="^.noice$")
+async def noice(event):
+    if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
+        if event.fwd_from:
+            return
+        message_id = event.message.id
+        if event.reply_to_msg_id:
+            message_id = event.reply_to_msg_id
+        await event.client.send_message(
+            event.chat_id,
+            reply_to=message_id,
+            file="https://media.giphy.com/media/yJFeycRK2DB4c/giphy.gif"
+        )
+        await event.delete()
+			  
 
 @register(outgoing=True, pattern="^;_;$")
 async def fun(e):
@@ -1138,6 +1154,11 @@ async def iqless(e):
 async def lol(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("L😂L")
+
+@register(outgoing=True, pattern="^.nice$")
+async def nice(e):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        await e.edit("Noice")
 
 
 @register(outgoing=True, pattern="^.moon$")
