@@ -1151,7 +1151,7 @@ async def Oof(e):
             await e.edit(t)
 			
 @register(outgoing=True, pattern="^.yo$")
-async def Oof(e):
+async def yo(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         t = "yo"
         for j in range(15):
@@ -1168,6 +1168,14 @@ async def lol(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("L😂L")
 
+@register(outgoing=True, pattern="^.alol$")
+async def alol(e):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        t = "L😂L"
+        for j in range(15):
+            t = "L🤣L" if j%2==0 else "L😂L"
+            await e.edit(t)			  
+			  
 @register(outgoing=True, pattern="^.nice$")
 async def nice(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
