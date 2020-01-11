@@ -15,8 +15,7 @@ PREV_REPLY_MESSAGE = {}
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "No name set yet nibba, check pinned message in @XtraTgBot"
 USER_BOT_WARN_ZERO = "**I am currently offline. Please do not SPAM me.You have been blocked by my userbot and it will remain that way until my master unblocks you.** "
 USER_BOT_NO_WARN = ("[──▄█▀█▄─────────██ \n▄████████▄───▄▀█▄▄▄▄ \n██▀▼▼▼▼▼─▄▀──█▄▄ \n█████▄▲▲▲─▄▄▄▀───▀▄ \n██████▀▀▀▀─▀────────▀▀](tg://user?id=742506768)\n\n"
-                    "`Yo, this is Walter White's bot.You have found your way here to my master,`"
-                    f"{DEFAULTUSER}'s` inbox.\n\n"
+                    "`Yo, this is `{DEFAULTUSER}`'s bot.You have found your way here to my master's inbox.\n\n"
                     "Leave your name, phone number, address and 10k$ and hopefully you'll get a reply within 2 light years.`\n\n"
                     "** Send** `/start` ** TWICE so that we can decide why you're here.**")
 
